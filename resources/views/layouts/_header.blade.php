@@ -16,16 +16,16 @@
                        aria-expanded="false">
                         {{ Auth::user()->name }}
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu  text-center" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ url('users.show', Auth::user()) }}">个人中心</a>
                         <a class="dropdown-item" href="{{ route('users.edit', Auth::user()) }}">编辑资料</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" id="logout" href="#">
+                        <a  class=" btn-inline-block   " id="logout" href="#">
                             <form action="{{ url('logout') }}" method="POST">
                                 @csrf
                                 @method('DELETE')
 {{--                                {{ method_field() }}--}}
-                                <button class="btn btn-block btn-danger" type="submit" name="button">退出</button>
+                                <button style="width: 85%;" class="btn btn-inline-block btn-danger  " type="submit" name="button">退出</button>
                             </form>
                         </a>
                     </div>
