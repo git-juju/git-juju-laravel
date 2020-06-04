@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container ">
-        <a class="navbar-brand" href="{{url('home')}}">Weibo App</a>
+        <a class="navbar-brand" href="{{route('home')}}">Weibo App</a>
         <ul class="navbar-nav justify-content-end">
             @if (Auth::check())
                 <li class="nav-item">
-                    <a class="nav-link" href="#">用户列表</a>
+                    <a class="nav-link" href="{{ route('users.index') }}">用户列表</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle"
@@ -17,11 +17,11 @@
                         {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu  text-center" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ url('users.show', Auth::user()) }}">个人中心</a>
+                        <a class="dropdown-item" href="{{ route('users.show', Auth::user()) }}">个人中心</a>
                         <a class="dropdown-item" href="{{ route('users.edit', Auth::user()) }}">编辑资料</a>
                         <div class="dropdown-divider"></div>
                         <a  class=" btn-inline-block   " id="logout" href="#">
-                            <form action="{{ url('logout') }}" method="POST">
+                            <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 @method('DELETE')
 {{--                                {{ method_field() }}--}}
@@ -32,10 +32,10 @@
                 </li>
             @else
             <li class="nav-item">
-                <a class="nav-link" href="{{url('help')}}">帮助</a>
+                <a class="nav-link" href="{{route('help')}}">帮助</a>
             </li>
             <li class="nav-item" >
-                <a class="nav-link" href="{{url('login')}}">登录</a>
+                <a class="nav-link" href="{{route('login')}}">登录</a>
             </li>
                 @endif
         </ul>
