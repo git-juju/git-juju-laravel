@@ -18,7 +18,7 @@ class   UserPolicy
     {
         //
         $this->middleware('auth', [
-            'except' => ['show', 'create', 'store']
+            'except' => ['show', 'create', 'store','index']
         ]);
     }
     public function update(User $currentUser, User $user)
