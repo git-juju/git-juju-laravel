@@ -9,19 +9,7 @@ class   UserPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Create a new policy instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-        $this->middleware('auth', [
-            'except' => ['show', 'create', 'store','index']
-        ]);
-    }
-    public function update(User $currentUser, User $user)
+  public function update(User $currentUser, User $user)
     {
         return $currentUser->id === $user->id;
     }
